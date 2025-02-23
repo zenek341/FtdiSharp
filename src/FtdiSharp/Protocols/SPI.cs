@@ -34,10 +34,9 @@ public class SPI : ProtocolBase
         if (spiMode < 0 || spiMode > 3)
             throw new ArgumentException(nameof(spiMode));
 
-        ClockIdlesLow = spiMode == 0 || spiMode == 1;
-        SampleOnRisingClock = spiMode == 0 || spiMode == 2;
-        TransmitOnRisingClock = spiMode == 1 || spiMode == 3;
-
+        ClockIdlesLow = spiMode == 0 || spiMode == 1;  
+        SampleOnRisingClock = spiMode == 0 || spiMode == 3; 
+        TransmitOnRisingClock = spiMode == 1 || spiMode == 2; 
         FTDI_ConfigureMpsse(slowDownFactor);
         CsHigh();
     }
